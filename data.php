@@ -1,0 +1,6 @@
+<?php
+$post1[] = ["titulo" => "Boda", "img" => "1.jpg", "descripcion" => "Liliana y Efrén", "fecha"=> "26 de abril, 2025"];
+
+$posts[] = ["titulo" => "Ceremonia Religiosa", "img" => "2.jpg", "descripcion" => "Iglesia de Tenasda, 76880 Amealco de Bonfil, Qro., México", "hora"=> "3:00 pm", "link-ubi" => "https://www.google.com/maps/@20.1141788,-99.9681473,3a,37.1y,84.8h,83.87t/data=!3m10!1e1!3m8!1sf4hReVKCEhwNeXDPbBHNYw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D6.126616603875846%26panoid%3Df4hReVKCEhwNeXDPbBHNYw%26yaw%3D84.8018512315328!7i16384!8i8192!9m2!1b1!2i51?entry=ttu&g_ep=EgoyMDI1MDIxOS4xIKXMDSoASAFQAw%3D%3D"];
+$post3[] = ["titulo" => "Recepción y Celebración", "img" => "2.jpg", "descripcion" => "Auditorio de Tenasda, 76880 Amealco de Bonfil, Qro., México", "hora"=> "4:30 pm", "link-ubi" => "https://maps.app.goo.gl/nKaiCtAmsDVKkyHW6"];
+/*$posts[] = ["titulo" => "Café + buena compañía = felicidad", "img" => "1.jpg", "descripcion" => "Estos momentos me hacen sentir tan a gusto.", "fecha"=> "2025-01-28", "likes"=> "23", "views"=> "100"];*/
