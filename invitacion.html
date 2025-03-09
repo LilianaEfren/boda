@@ -39,6 +39,7 @@
           }, 1000);
         }).catch(error => {
           console.log("Reproducción bloqueada. Esperando interacción...");
+          // Esperar una interacción explícita del usuario para reintentar la reproducción
           document.addEventListener("click", activarSonido, { once: true });
           document.addEventListener("touchstart", activarSonido, { once: true });
           document.addEventListener("scroll", activarSonido, { once: true });
@@ -53,7 +54,7 @@
       console.log("Sonido activado.");
     }
 
-    // Reintentar cada 2 segundos en caso de fallo inicial
+    // Reintentar la reproducción cada 2 segundos en caso de que la reproducción sea bloqueada
     let intervalo = setInterval(() => {
       if (!audio.paused) {
         clearInterval(intervalo);
@@ -62,12 +63,20 @@
       }
     }, 2000);
 
-    intentarReproducir(); // Primer intento inmediato
+    // Intentar la reproducción de audio de inmediato
+    intentarReproducir();
   });
 </script>
 
 
+
 <body>
+
+  <!-- Mensaje que indica que deben tocar la pantalla -->
+  <div class="instrucciones">
+    Toca la pantalla para ver la invitación
+  </div>
+
   <div class="contenido">
     <div class="post1">
       <p class="titulo">Boda</p>
@@ -323,6 +332,28 @@
         0% { opacity: 0; }
         100% { opacity: 1; }
     }
+    /* Estilos para el mensaje de toque */
+    .instrucciones {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      z-index: 9999;
+    }
+
+    /* Añadir un toque visual que atraiga la atención */
+    .instrucciones:before {
+      content: "👆🏻";
+      font-size: 30px;
+      display: block;
+      margin-bottom: 10px;
+    }
 </style>
 
 <script>
@@ -338,6 +369,17 @@
             }
         });
     });
+
+    document.addEventListener('touchstart', quitarInstrucciones);
+    document.addEventListener('click', quitarInstrucciones);
+
+    // Eliminar el mensaje de instrucciones cuando se toque o haga clic en la pantalla
+    function quitarInstrucciones() {
+      const instrucciones = document.querySelector('.instrucciones');
+      if (instrucciones) {
+        instrucciones.remove();
+      }
+    }
 </script>
 
 <script>
